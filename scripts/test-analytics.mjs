@@ -90,7 +90,27 @@ try {
   const updated = (await after.json()).visits.find((visit) => visit.id === localId)
   assert.ok(updated.lastSeen > local.lastSeen)
   assert.equal(updated.pageViews, 1)
-  console.log(`PASS: local IP ${local.ip} (${local.location}, ${local.browser} on ${local.os}); forwarded IP ${remote.ip} (${remote.location}, ${remote.browser} on ${remote.os} ${remote.device}).`)
+  for (const action of ['copy-ca', 'open-x', 'open-telegram']) {
+    const response = await request(`${base}/api/analytics/collect`, {
+      method: 'POST',
+      headers: { 'user-agent': chrome },
+      body: { type: 'action', action, visitorId: localId, path: '/Pephelia/' },
+    })
+    assert.equal(response.status, 200)
+  }
+  const acted = await request(`${base}/api/dashboard/analytics/visits`, { headers: { authorization: `Bearer ${token}` } })
+  const withActions = (await acted.json()).visits.find((visit) => visit.id === localId)
+  assert.equal(withActions.copiedCa, 1)
+  assert.equal(withActions.openedX, 1)
+  assert.equal(withActions.openedTelegram, 1)
+  assert.equal(withActions.pageViews, 1)
+  const blocked = await request(`${base}/api/dashboard/analytics/visits/${localId}`, { method: 'DELETE' })
+  assert.equal(blocked.status, 401)
+  const removed = await request(`${base}/api/dashboard/analytics/visits/${localId}`, { method: 'DELETE', headers: { authorization: `Bearer ${token}` } })
+  assert.equal(removed.status, 200)
+  const remaining = await request(`${base}/api/dashboard/analytics/visits`, { headers: { authorization: `Bearer ${token}` } })
+  assert.equal((await remaining.json()).visits.some((visit) => visit.id === localId), false)
+  console.log(`PASS: local IP ${local.ip} (${local.location}, ${local.browser} on ${local.os}); forwarded IP ${remote.ip} (${remote.location}, ${remote.browser} on ${remote.os} ${remote.device}); actions recorded and the record removed.`)
 } finally {
   await new Promise((resolve) => server.close(resolve))
   app.close()

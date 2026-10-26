@@ -131,6 +131,10 @@ export function createAnalyticsApp({ dataDir = DATA_DIR, password = process.env.
     );
     CREATE TABLE IF NOT EXISTS geo_cache (ip TEXT PRIMARY KEY, location TEXT NOT NULL, cached_at INTEGER NOT NULL);
   `)
+  const visitColumns = new Set(db.prepare('PRAGMA table_info(visits)').all().map((column) => column.name))
+  for (const column of ['copied_ca', 'opened_x', 'opened_telegram']) {
+    if (!visitColumns.has(column)) db.exec(`ALTER TABLE visits ADD COLUMN ${column} INTEGER NOT NULL DEFAULT 0`)
+  }
   const storedPassword = db.prepare('SELECT value FROM settings WHERE key = ?').get('password')
   if (!storedPassword && password) db.prepare('INSERT INTO settings (key, value) VALUES (?, ?)').run('password', hashPassword(password))
   const failures = new Map()
@@ -166,7 +170,7 @@ export function createAnalyticsApp({ dataDir = DATA_DIR, password = process.env.
     if (origin && originAllowed(origin)) {
       headers['access-control-allow-origin'] = origin
       headers['access-control-allow-headers'] = 'content-type, authorization'
-      headers['access-control-allow-methods'] = 'GET, POST, OPTIONS'
+      headers['access-control-allow-methods'] = 'GET, POST, DELETE, OPTIONS'
       headers.vary = 'Origin'
     }
     res.writeHead(status, headers)
@@ -193,7 +197,10 @@ export function createAnalyticsApp({ dataDir = DATA_DIR, password = process.env.
   async function record(req, body) {
     const visitorId = cleanText(body.visitorId, 80)
     if (!/^[0-9a-f-]{36}$/i.test(visitorId)) return { status: 400, body: { ok: false } }
-    const type = body.type === 'heartbeat' ? 'heartbeat' : 'pageview'
+    const type = body.type === 'heartbeat' ? 'heartbeat' : body.type === 'action' ? 'action' : 'pageview'
+    const actions = { 'copy-ca': 'copied_ca', 'open-x': 'opened_x', 'open-telegram': 'opened_telegram' }
+    const actionColumn = type === 'action' ? actions[body.action] : null
+    if (type === 'action' && !actionColumn) return { status: 400, body: { ok: false } }
     const ip = clientIp(req) || 'Unavailable'
     const agent = parseUserAgent(String(req.headers['user-agent'] || ''))
     const location = await locationFor(ip)
@@ -201,7 +208,9 @@ export function createAnalyticsApp({ dataDir = DATA_DIR, password = process.env.
     const referrer = cleanText(body.referrer, 500)
     const existing = db.prepare('SELECT id FROM visits WHERE id = ?').get(visitorId)
     if (!existing) {
-      db.prepare('INSERT INTO visits (id, ip, location, browser, os, device, path, referrer, started_at, last_seen, page_views) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)').run(visitorId, ip, location, agent.browser, agent.os, agent.device, visitPath, referrer, now(), now(), type === 'pageview' ? 1 : 0)
+      db.prepare('INSERT INTO visits (id, ip, location, browser, os, device, path, referrer, started_at, last_seen, page_views, copied_ca, opened_x, opened_telegram) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)').run(visitorId, ip, location, agent.browser, agent.os, agent.device, visitPath, referrer, now(), now(), type === 'pageview' ? 1 : 0, actionColumn === 'copied_ca' ? 1 : 0, actionColumn === 'opened_x' ? 1 : 0, actionColumn === 'opened_telegram' ? 1 : 0)
+    } else if (type === 'action') {
+      db.prepare(`UPDATE visits SET ip = ?, location = ?, browser = ?, os = ?, device = ?, path = ?, last_seen = ?, ${actionColumn} = ${actionColumn} + 1 WHERE id = ?`).run(ip, location, agent.browser, agent.os, agent.device, visitPath, now(), visitorId)
     } else if (type === 'pageview') {
       db.prepare('UPDATE visits SET ip = ?, location = ?, browser = ?, os = ?, device = ?, path = ?, referrer = ?, last_seen = ?, page_views = page_views + 1 WHERE id = ?').run(ip, location, agent.browser, agent.os, agent.device, visitPath, referrer, now(), visitorId)
     } else {
@@ -218,7 +227,7 @@ export function createAnalyticsApp({ dataDir = DATA_DIR, password = process.env.
       res.writeHead(204, {
         'access-control-allow-origin': originAllowed(origin) && origin ? origin : '*',
         'access-control-allow-headers': 'content-type, authorization',
-        'access-control-allow-methods': 'GET, POST, OPTIONS',
+        'access-control-allow-methods': 'GET, POST, DELETE, OPTIONS',
         vary: 'Origin',
       })
       res.end()
@@ -277,9 +286,17 @@ export function createAnalyticsApp({ dataDir = DATA_DIR, password = process.env.
           startedAt: row.started_at,
           lastSeen: row.last_seen,
           pageViews: row.page_views,
+          copiedCa: row.copied_ca || 0,
+          openedX: row.opened_x || 0,
+          openedTelegram: row.opened_telegram || 0,
           active: now() - row.last_seen <= ACTIVE_MS,
         }))
         return send(res, 200, { visits, generatedAt: now() }, origin)
+      }
+      const removal = url.pathname.match(/^\/api\/dashboard\/analytics\/visits\/([0-9a-f-]{36})$/i)
+      if (req.method === 'DELETE' && removal) {
+        db.prepare('DELETE FROM visits WHERE id = ?').run(removal[1])
+        return send(res, 200, { ok: true }, origin)
       }
       send(res, 404, { ok: false }, origin)
     } catch (error) {

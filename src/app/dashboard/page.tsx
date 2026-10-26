@@ -15,6 +15,9 @@ type Visit = {
   startedAt: number
   lastSeen: number
   pageViews: number
+  copiedCa: number
+  openedX: number
+  openedTelegram: number
   active: boolean
 }
 type Summary = { activeVisitors: number; visitors: number; pageViews: number; generatedAt: number }
@@ -104,6 +107,16 @@ export default function DashboardPage() {
     setReady(true)
   }
 
+  async function removeVisit(id: string) {
+    const result = await call(`/api/dashboard/analytics/visits/${id}`, token, { method: 'DELETE' })
+    if (!result.ok) {
+      setError('That visit could not be removed.')
+      return
+    }
+    setVisits((current) => current.filter((visit) => visit.id !== id))
+    void load(token)
+  }
+
   async function logout() {
     await call('/api/dashboard/logout', token, { method: 'POST', body: {} })
     sessionStorage.removeItem(TOKEN_KEY)
@@ -116,7 +129,7 @@ export default function DashboardPage() {
   return (
     <main className={styles.page}>
       <div className={styles.frame}>
-        <p className={styles.lead}>PEPHELIA TWIN</p>
+        <p className={styles.kicker}>PEPHELIA TWIN</p>
         <h1>Visitors</h1>
         {!ready ? (
           <form className={styles.card} onSubmit={onLogin}>
@@ -143,7 +156,7 @@ export default function DashboardPage() {
             <div className={styles.tableWrap}>
               <table className={styles.table}>
                 <thead>
-                  <tr><th>Seen</th><th>IP address</th><th>Location</th><th>Device</th><th>Page</th><th>Status</th></tr>
+                  <tr><th>Seen</th><th>IP address</th><th>Location</th><th>Device</th><th>Page</th><th>Actions</th><th>Status</th><th></th></tr>
                 </thead>
                 <tbody>
                   {visits.map((visit) => (
@@ -153,10 +166,12 @@ export default function DashboardPage() {
                       <td>{visit.location}</td>
                       <td>{visit.browser} · {visit.os} · {visit.device}</td>
                       <td className={styles.path}>{visit.path}<br />{visit.pageViews} view{visit.pageViews === 1 ? '' : 's'}</td>
+                      <td className={styles.actions}>{[visit.copiedCa ? 'Copied CA' : '', visit.openedX ? 'Opened X' : '', visit.openedTelegram ? 'Opened Telegram' : ''].filter(Boolean).join(' · ') || 'None yet'}</td>
                       <td className={visit.active ? styles.live : styles.idle}>{visit.active ? 'Live' : 'Idle'}</td>
+                      <td><button type="button" className={styles.remove} onClick={() => void removeVisit(visit.id)}>Remove</button></td>
                     </tr>
                   ))}
-                  {visits.length === 0 && <tr><td colSpan={6}>No visits yet.</td></tr>}
+                  {visits.length === 0 && <tr><td colSpan={8}>No visits yet.</td></tr>}
                 </tbody>
               </table>
             </div>
