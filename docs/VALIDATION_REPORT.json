@@ -1,0 +1,39 @@
+{
+  "status": "passed",
+  "date": "2026-10-25",
+  "originalSourceImages": 13,
+  "derivedPngBanner": 1,
+  "chapters": 10,
+  "decodedWebsiteImages": 30,
+  "logoTransparentOutside": true,
+  "banner": {
+    "width": 1671,
+    "height": 557,
+    "ratio": "3:1"
+  },
+  "webAssetBytes": 4829080,
+  "browser": {
+    "productionExport": true,
+    "frameWidths": [
+      320,
+      390,
+      768
+    ],
+    "viewerOpenNextEscapeFocusReturn": true,
+    "rainAndMotionControls": true,
+    "downloadBytesMatched": true,
+    "downloadDimensions": [
+      1672,
+      941
+    ]
+  },
+  "launch": {
+    "contractPending": true,
+    "officialLinksPending": true,
+    "publicDeploymentPerformed": false
+  },
+  "limits": [
+    "Phone/tablet checks use iframe viewports, not hardware.",
+    "No live CA, actual wallet transaction, Safari/iOS or remote deployment was tested."
+  ]
+}

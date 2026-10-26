@@ -1,0 +1,72 @@
+{
+  "provenance": "Generation briefs reconstructed from this conversation; saved source PNGs are supplied. No artwork was regenerated during recovery.",
+  "reference": "artwork/originals/hero-approved.png",
+  "common": "Two independent adult female Pepe sisters: blue-gray bull/buy in deep midnight navy and muted crimson bear/sell in deep oxblood. Flat closed frog mouths, heavy tired eyelids, long straight black hair, plain flowing black thin-strap gowns, matte dimensional 3D, cold low-key light, dark textures. No smiles, bright fantasy glow, gold floodlight, neon, text or watermarks.",
+  "scenes": [
+    {
+      "file": "chapter-01.png",
+      "subject": "The blue and red Pephelia sisters stand beside a still gothic pond beneath the opposing bull and bear court emblems.",
+      "story": "They came into the world in the same hour, under the same rain. Blue looked across the water and imagined everything that might rise. Red looked at the very same water and considered what might sink. Neither was interested in explaining herself. The pond learned to make room for both.",
+      "composition": "Main action opposite the left live-text side, with quiet negative space; standalone 16:9 scene."
+    },
+    {
+      "file": "chapter-02.png",
+      "subject": "Blue Pephelia watches a bull commander and small blue Pepes gather around a war table in a shadowy navy court.",
+      "story": "The Blue Court meets beneath rain-streaked windows. The bull commander brings a plan. The little Pepes bring several louder plans. Blue listens to none of them. She has already made her decision, and the court mistakes her silence for a speech.",
+      "composition": "Main action opposite the right live-text side, with quiet negative space; standalone 16:9 scene."
+    },
+    {
+      "file": "chapter-03.png",
+      "subject": "Red Pephelia sits in a burgundy court while a bear commander and small red Pepes quietly prepare their banners.",
+      "story": "Across the water, the Red Court keeps its voices low. A bear commander studies the exits. Small red Pepes fold the banners Blue has not yet raised. Red sits behind the velvet curtain with the expression of someone who has seen this ending before.",
+      "composition": "Main action opposite the left live-text side, with quiet negative space; standalone 16:9 scene."
+    },
+    {
+      "file": "chapter-04.png",
+      "subject": "The two sisters sit across a black chess table with a single dim candle as blue and red Pepe couriers hurry away.",
+      "story": "For a moment, there was only a candle between them. Blue moved a piece forward. Red moved hers back. Somewhere outside, a little Pepe decided that this was probably a declaration of war. By the time anyone thought to ask, the drums had started.",
+      "composition": "Main action opposite the right live-text side, with quiet negative space; standalone 16:9 scene."
+    },
+    {
+      "file": "chapter-05.png",
+      "subject": "Bull-led blue Pepes and bear-led red Pepes face each other on a dark gothic bridge below the two detached sisters.",
+      "story": "Blue banners filled one end of the bridge. Red banners filled the other. The bull commander called it momentum; the bear commander called it overdue. Every little Pepe had an explanation. Neither sister had asked for one.",
+      "composition": "Main action opposite the left live-text side, with quiet negative space; standalone 16:9 scene."
+    },
+    {
+      "file": "chapter-06.png",
+      "subject": "A bull commander and small blue Pepes enter an empty rain-dark courtyard while Red Pephelia watches quietly from above.",
+      "story": "It looked like a clear path. That was the trouble with it. The blue commander marched his Pepes through the gate and found a courtyard with no enemy, no victory, and an unpleasantly heavy door. Red watched from the gallery. Her cup had not yet gone cold.",
+      "composition": "Main action opposite the right live-text side, with quiet negative space; standalone 16:9 scene."
+    },
+    {
+      "file": "chapter-07.png",
+      "subject": "A bear commander and red Pepes pause on a descending stone stair as Blue Pephelia and her regrouped blue faction appear across the water.",
+      "story": "The Red Court mistook a retreat for a farewell. Below the stair, blue banners rose from the mist and a very patient bull commander stepped into view. Blue rested a hand on the stone rail. It was the closest she came to saying she had told anyone so.",
+      "composition": "Main action opposite the left live-text side, with quiet negative space; standalone 16:9 scene."
+    },
+    {
+      "file": "chapter-08.png",
+      "subject": "A blue and a red Pepe courier meet with a small white truce cloth on a rainy crossing between the sisters’ shadowy banks.",
+      "story": "The banners grew heavy. The drums went quiet. One blue Pepe and one red Pepe met at the middle of the crossing with a white cloth between them. The sisters waited on opposite banks, each entirely certain that the other was about to apologize.",
+      "composition": "Main action opposite the right live-text side, with quiet negative space; standalone 16:9 scene."
+    },
+    {
+      "file": "chapter-09.png",
+      "subject": "Blue and red Pepes dry their lowered banners in a dim gallery beneath the two sisters and a bear commander.",
+      "story": "In the ruined gallery, the little Pepes wrung rain out of their banners. The bull and the bear stood beneath the same roof for the first time all night. Nobody called it peace. That would have required someone to admit there had been a problem.",
+      "composition": "Main action opposite the left live-text side, with quiet negative space; standalone 16:9 scene."
+    },
+    {
+      "file": "chapter-10.png",
+      "subject": "The two deadpan Pephelia sisters share tea at a dark table while small blue and red Pepes sleep beneath a rain-streaked window.",
+      "story": "By dawn, both sisters had returned to the same table. Blue saw a cup waiting to be filled. Red saw a cup about to be empty. Their kingdoms slept below the window. The argument, naturally, was only taking a short break.",
+      "composition": "Main action opposite the right live-text side, with quiet negative space; standalone 16:9 scene."
+    }
+  ],
+  "branding": {
+    "logo": "Transparent circular dark silver twin medallion with separate blue and red frog faces, flat tired expressions, no letters.",
+    "map": "Dark dimensional gothic relief landscape with central pond, navy west court, oxblood east court, bridge, gate, stair, marsh, gallery and upper room; no raster labels.",
+    "banner": "Exact 3:1 crop of the approved hero, no new semantic content."
+  }
+}

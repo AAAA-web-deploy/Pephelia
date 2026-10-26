@@ -1,0 +1,332 @@
+{
+  "artDirection": "Approved dark matte 3D twin sisters; no rejected bright artwork.",
+  "assetCount": 13,
+  "missing": [],
+  "assets": [
+    {
+      "id": "hero-approved",
+      "original": "artwork/originals/hero-approved.png",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGBA",
+      "sha256": "e4a790733c492307acc9a1366d35d4d01f79f5bb619e76bca549c76733bacf4b",
+      "variants": [
+        {
+          "file": "public/assets/hero.webp",
+          "width": 1672,
+          "height": 941,
+          "bytes": 180860
+        },
+        {
+          "file": "public/assets/hero-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 68614
+        },
+        {
+          "file": "public/assets/blue-portrait.webp",
+          "width": 640,
+          "height": 780,
+          "bytes": 68520,
+          "crop": [
+            80,
+            120,
+            720,
+            900
+          ]
+        },
+        {
+          "file": "public/assets/red-portrait.webp",
+          "width": 640,
+          "height": 780,
+          "bytes": 59430,
+          "crop": [
+            1030,
+            120,
+            1670,
+            900
+          ]
+        },
+        {
+          "file": "public/assets/banner.webp",
+          "width": 1671,
+          "height": 557,
+          "bytes": 114618,
+          "ratio": "3:1"
+        }
+      ]
+    },
+    {
+      "id": "logo",
+      "original": "artwork/originals/logo.png",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "sha256": "afd7e0cdd09912f16b3369023fe42d160026e1ce27ebab99420c61b2872f3296",
+      "variants": [
+        {
+          "file": "public/assets/logo.png",
+          "width": 512,
+          "height": 512,
+          "bytes": 413689
+        },
+        {
+          "file": "public/assets/logo-96.png",
+          "width": 96,
+          "height": 96,
+          "bytes": 20038
+        },
+        {
+          "file": "public/assets/favicon.png",
+          "width": 32,
+          "height": 32,
+          "bytes": 2988
+        },
+        {
+          "file": "public/assets/apple-touch-icon.png",
+          "width": 180,
+          "height": 180,
+          "bytes": 60189
+        }
+      ],
+      "transparentOutside": true
+    },
+    {
+      "id": "journey-map",
+      "original": "artwork/originals/journey-map.png",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB",
+      "sha256": "0d9dde1478b1f9e16c1ac3c1bc753742603a92564fb879f0896107f8a8854b1a",
+      "variants": [
+        {
+          "file": "public/assets/journey-map.webp",
+          "width": 1672,
+          "height": 941,
+          "bytes": 428418
+        }
+      ]
+    },
+    {
+      "id": "chapter-01",
+      "original": "artwork/originals/chapter-01.png",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB",
+      "sha256": "f903890bed6255c149147ebcca72cbd0edaa7fb08ba9a15983fc9588a2b0177d",
+      "variants": [
+        {
+          "file": "public/assets/chapter-01.webp",
+          "width": 1672,
+          "height": 941,
+          "bytes": 210862
+        },
+        {
+          "file": "public/assets/chapter-01-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 75060
+        }
+      ]
+    },
+    {
+      "id": "chapter-02",
+      "original": "artwork/originals/chapter-02.png",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB",
+      "sha256": "ca41fc6af05b1b9786d0193c5131287786e22a8de10718c20752965b769b9253",
+      "variants": [
+        {
+          "file": "public/assets/chapter-02.webp",
+          "width": 1672,
+          "height": 941,
+          "bytes": 217020
+        },
+        {
+          "file": "public/assets/chapter-02-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 83070
+        }
+      ]
+    },
+    {
+      "id": "chapter-03",
+      "original": "artwork/originals/chapter-03.png",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB",
+      "sha256": "a7e102bb970ab0910d536b4e688f9e39a3ec0ec463e8e040a6c70b6cf1958c06",
+      "variants": [
+        {
+          "file": "public/assets/chapter-03.webp",
+          "width": 1672,
+          "height": 941,
+          "bytes": 223530
+        },
+        {
+          "file": "public/assets/chapter-03-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 83768
+        }
+      ]
+    },
+    {
+      "id": "chapter-04",
+      "original": "artwork/originals/chapter-04.png",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB",
+      "sha256": "5cc56f671fbd028ad0cbdb7bf89759c159b6774444802026fae3262212c70805",
+      "variants": [
+        {
+          "file": "public/assets/chapter-04.webp",
+          "width": 1672,
+          "height": 941,
+          "bytes": 217086
+        },
+        {
+          "file": "public/assets/chapter-04-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 83626
+        }
+      ]
+    },
+    {
+      "id": "chapter-05",
+      "original": "artwork/originals/chapter-05.png",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB",
+      "sha256": "b8a36dc37f5b681610ed5700bdd5d1a98929a058a4ea48cc6e763e344edeb25a",
+      "variants": [
+        {
+          "file": "public/assets/chapter-05.webp",
+          "width": 1672,
+          "height": 941,
+          "bytes": 284294
+        },
+        {
+          "file": "public/assets/chapter-05-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 102156
+        }
+      ]
+    },
+    {
+      "id": "chapter-06",
+      "original": "artwork/originals/chapter-06.png",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB",
+      "sha256": "6a1ada84e486946bb12734bbff98f7691fa7fd2ccecc437a8cb3d5de459a5f83",
+      "variants": [
+        {
+          "file": "public/assets/chapter-06.webp",
+          "width": 1672,
+          "height": 941,
+          "bytes": 232842
+        },
+        {
+          "file": "public/assets/chapter-06-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 89762
+        }
+      ]
+    },
+    {
+      "id": "chapter-07",
+      "original": "artwork/originals/chapter-07.png",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB",
+      "sha256": "95fbb9a6f693fae1ec9318df0b7239784d3c3d203ab9bec347b1c2f1a650c4b1",
+      "variants": [
+        {
+          "file": "public/assets/chapter-07.webp",
+          "width": 1672,
+          "height": 941,
+          "bytes": 239040
+        },
+        {
+          "file": "public/assets/chapter-07-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 88314
+        }
+      ]
+    },
+    {
+      "id": "chapter-08",
+      "original": "artwork/originals/chapter-08.png",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB",
+      "sha256": "a0c7f8ac42477ca6bdf685e436cd70d3332b0931a4ee9e8ec1675fdbe124ab31",
+      "variants": [
+        {
+          "file": "public/assets/chapter-08.webp",
+          "width": 1672,
+          "height": 941,
+          "bytes": 333660
+        },
+        {
+          "file": "public/assets/chapter-08-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 129088
+        }
+      ]
+    },
+    {
+      "id": "chapter-09",
+      "original": "artwork/originals/chapter-09.png",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB",
+      "sha256": "9f049b4b2cfa7e06e8d2835817c6be65e032beab32519c4392e348ae1eef14b1",
+      "variants": [
+        {
+          "file": "public/assets/chapter-09.webp",
+          "width": 1672,
+          "height": 941,
+          "bytes": 321398
+        },
+        {
+          "file": "public/assets/chapter-09-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 120482
+        }
+      ]
+    },
+    {
+      "id": "chapter-10",
+      "original": "artwork/originals/chapter-10.png",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB",
+      "sha256": "9818b6aab793bb4389b00ec7a8121108dffa879ecc4a18bed17e13bd36aa854c",
+      "variants": [
+        {
+          "file": "public/assets/chapter-10.webp",
+          "width": 1672,
+          "height": 941,
+          "bytes": 201554
+        },
+        {
+          "file": "public/assets/chapter-10-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 75104
+        }
+      ]
+    }
+  ],
+  "totalWebAssetBytes": 4829080
+}
