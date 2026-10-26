@@ -26,6 +26,6 @@
 @media(max-width:390px){.brand{font-size:12px;letter-spacing:.02em}.header-nav{gap:12px}.site-header{padding:0 12px}.header-token{padding-left:10px}.twin-grid{gap:16px}.profile-copy h3{font-size:26px}.how-to-buy ol{grid-template-columns:1fr}.identity-strip small{font-size:8px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}}
 .copy-button{width:44px;min-width:44px;padding:0}
-.view-next{display:flex;justify-content:center;padding:48px 24px 88px}
+.view-next{display:flex;justify-content:center;padding:28px 24px 72px}
 .view-next .button{min-width:min(100%,280px)}
 @media(max-width:900px){.copy-button{width:44px;padding:0}}
